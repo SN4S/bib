@@ -14,4 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/news', [NewsController::class, 'getAllNews']);
+Route::get('/', [NewsController::class, 'getAllNews']);
+
+Route::get('/update',[\App\Http\Controllers\NewsUpdate::class,'UpdateFeed']);

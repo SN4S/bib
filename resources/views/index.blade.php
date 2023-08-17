@@ -14,7 +14,7 @@
     </div>
     <div id="navcontainer">
       <ul id="navlist">
-        <li id="active"><a href="Сюда встав свою урлу для парсинга з пайтона" id="current">Add new news</a></li>
+        <li id="active"><a href="/update" target="_blank" id="current">Add new news</a></li>
       </ul>
     </div>
   </div>

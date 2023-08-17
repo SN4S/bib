@@ -2,15 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Parsers\RSSParser;
+use App\Repository\NewsRepository;
 use App\Service\NewsService;
 use Illuminate\Routing\Controller;
 
 class NewsController extends Controller
 {
-    public function getAllNews(NewsService $newsService)
+    public function getAllNews(NewsRepository $newsRepository)
     {
+        $news=$newsRepository->getAllNews();
         return view('index',[
-            'news' => $newsService->getAllNews(),
+            'news' => $news,
         ]) ;
     }
 }
