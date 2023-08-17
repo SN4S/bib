@@ -23,19 +23,24 @@
     <div class="container" align=center>
             <iframe src="https://www.youtube.com/embed/aFnXjlkPwfc" height="300px" width="450"></iframe>
     </div>
+
     @foreach($news as $new)
         <div>
         <h3>{{$new['title']}}</h3>
-        <div>
-        <p> <a href="{{$new['source']}}">Первий источник</a> <p>
-            {{$new['content']}}
+        <p> <a href="{{$new['link']}}">Первий источник</a> <p>
+            {{$new['description']}}
             </p>
-        <ahref="{{$new['image']}}"></a>
-            <a href="{{$new['source']}}" target="_blank"><img
-                    src="{{$new['image'] }}" class="img-fluid"
-                    width="700" alt="none"></a>
+        <a href="{{$new['pubdate']}}"></a>
         </div>
     @endforeach
   <div id="footer"> <a href="http://all-free-download.com/free-website-templates/">Link One</a> | <a href="http://all-free-download.com/free-website-templates/">Link Two</a> | <a href="http://all-free-download.com/free-website-templates/">Link Three</a> | <a href="http://all-free-download.com/free-website-templates/">Link Four</a> | <a href="http://all-free-download.com/free-website-templates/">Link Five</a> <br />
 </div>
+        </div>
+</body>
+</body>
 </html>
+
+<?php
+//    $sites = file_get_contents('/home/sn4s/bibm/sites.txt');
+//    echo $sites;
+

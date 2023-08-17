@@ -10,10 +10,10 @@ class News extends Model
     use HasFactory;
 
     protected $fillable = [
-      'source',
       'title',
-      'date',
-      'content',
+      'link',
+      'description',
+      'pubdate',
       'image'
     ];
 }
