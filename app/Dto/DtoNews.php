@@ -4,9 +4,9 @@ namespace App\Dto;
 
 class DtoNews
 {
-    public function __construct(public readonly string $title,
-                                public readonly string $link,
-                                public readonly string $description,
-                                public readonly string $pubdate
+    public function __construct(public string $title,
+                                public string $link,
+                                public string $description,
+                                public string $pubdate
 ){}
 }
