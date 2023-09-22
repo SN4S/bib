@@ -1,46 +1,54 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="" lang="">
+<html>
 <head>
-<title>ZNews</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('style.css') }}" >
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-<div id="page_wrapper">
-  <div id="header_wrapper">
-    <div id="header">
-      <h1>News<font color="#FFDF8C">Portal</font></h1>
-      <h2></h2>
-    </div>
-    <div id="navcontainer">
-      <ul id="navlist">
-        <li id="active"><a href="/update" target="_blank" id="current">Add new news</a></li>
-      </ul>
-    </div>
-  </div>
-    <div></div>
-    <h1 align=center>Прямая трансляция с поле боя </h1>
-    <div class="container" align=center>
-            <iframe src="https://www.youtube.com/embed/aFnXjlkPwfc" height="300px" width="450"></iframe>
-    </div>
-
+<header class="bg-white">
+    <nav class="mx-auto flex max-w-6xl items-center justify-between p-6 lg:px-8" aria-label="Global">
+        <div class="flex lg:flex-1">
+            <a href="/" class="-m-1.5 p-1.5">
+                <span class="sr-only">Your Company</span>
+                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+            </a>
+        </div>
+        <div class="hidden lg:flex lg:gap-x-12">
+            <a href="/update" class="text-sm font-semibold leading-6 text-gray-900">Оновити</a>
+        </div>
+        <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+            <a class="text-sm font-semibold leading-6 text-gray-900"> </a>
+        </div>
+    </nav>
+</header>
+{{--news list--}}
+<main>
+<ul role="list" class="divide-y divide-gray-100 max-w-5xl mx-auto">
     @foreach($news as $new)
-        <div>
-        <h3>{{$new['title']}}</h3>
-        <p> <a href="{{$new['link']}}">Первий источник</a> <p>
-            {{$new['description']}}
-            </p>
-        <a href="{{$new['pubdate']}}"></a>
+
+    <li class="flex justify-between gap-x-6 py-5  px-5 my-2 shadow-md sm:rounded-lg">
+        <div class="flex min-w-0 gap-x-4">
+
+            <p class="my-auto text-xs leading-5 text-gray-500">{{$new['created_at']->format("h:i")}}</p>
+            <img class="h-12 w-12 flex-none rounded-full bg-gray-50" src="https://static1.eadaily.com/i/fav/favicon.svg" alt="">
+            <div class="min-w-0 flex-auto">
+                <p class="text-sm font-semibold leading-6 text-gray-900"><a href="{{route('onews',[$new['id']])}}">{{$new['title']}}</a></p>
+                <p class="mt-1 truncate text-xs leading-5 text-gray-500"><a href="{{route('onews',[$new['id']])}}">{{$new['description']}}</a></p>
+            </div>
+
         </div>
+        <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+            <p class="text-sm leading-6 text-gray-500">{{$new['created_at']->format("d.m.Y")}}</p>
+            <p class="mt-1 text-xs leading-5 text-gray-600">Source: <a href="{{$new['link']}}">ПервИИИИй источник</a></p>
+        </div>
+
+    </li>
     @endforeach
-  <div id="footer"> <a href="http://all-free-download.com/free-website-templates/">Link One</a> | <a href="http://all-free-download.com/free-website-templates/">Link Two</a> | <a href="http://all-free-download.com/free-website-templates/">Link Three</a> | <a href="http://all-free-download.com/free-website-templates/">Link Four</a> | <a href="http://all-free-download.com/free-website-templates/">Link Five</a> <br />
-</div>
-        </div>
-</body>
+    <div class="mx-2 my-2 border-white">{{$news->links()}}</div>
+
+
+</ul>
+</main>
+<footer>
+
+</footer>
 </body>
 </html>
-
-<?php
-//    $sites = file_get_contents('/home/sn4s/bibm/sites.txt');
-//    echo $sites;
-

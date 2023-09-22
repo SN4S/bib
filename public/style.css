@@ -101,6 +101,9 @@ A:hover {
 #footer A:hover {
     COLOR: #FFFFFF; text-decoration: underline;
 }
+#footer svg{
+    max-height: 50px;
+}
 
 #left_side p, #right_side p {
     margin:10px;margin-top:15px;margin-bottom:15px;
