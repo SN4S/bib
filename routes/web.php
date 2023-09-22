@@ -15,5 +15,6 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [NewsController::class, 'getAllNews']);
+Route::get('/news/{id}', [NewsController::class, 'openOneNews'])->name('onews');
 
 Route::get('/update',[\App\Http\Controllers\NewsUpdate::class,'UpdateFeed']);

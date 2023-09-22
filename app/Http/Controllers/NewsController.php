@@ -12,8 +12,11 @@ class NewsController extends Controller
     public function getAllNews(NewsRepository $newsRepository)
     {
         $news=$newsRepository->getAllNews();
-        return view('index',[
-            'news' => $news,
-        ]) ;
+        return view('index',['news'=>$news]) ;
+    }
+
+    public function openOneNews(NewsRepository $newsRepository, $id){
+        $news=$newsRepository->getOneNews($id);
+        return view('news',['news'=>$news]);
     }
 }
