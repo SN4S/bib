@@ -26,8 +26,13 @@ class NewsRepository
         return News::query()->insert($news);
     }
 
-    public function getAllNews():array
+    public function getAllNews()
     {
-        return News::query()->get()->toArray();
+        return News::query()->orderByDesc('created_at')->paginate(15);
+    }
+
+    public function getOneNews($id){
+
+        return News::query()->find($id);
     }
 }
