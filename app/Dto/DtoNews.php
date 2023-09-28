@@ -10,5 +10,7 @@ class DtoNews
                                 public string $link,
                                 public string $description,
                                 public Carbon $pubdate,
+                                public string $image,
+                                public string $source_name
 ){}
 }

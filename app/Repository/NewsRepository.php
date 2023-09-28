@@ -20,6 +20,8 @@ class NewsRepository
             'link'=>$table->link,
             'description'=>$table->description,
             'pubdate'=>$table->pubdate,
+            'image'=>$table->image,
+            'source_name'=>$table->source_name,
         ]);
     }
     public function insertNews(array $news): bool

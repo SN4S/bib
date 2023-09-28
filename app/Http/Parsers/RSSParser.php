@@ -11,11 +11,11 @@ class RSSParser
     public function pars(string $url){
         $feed = new DOMDocument();
         $feed->load($url);
-//        $json = array();
-//        $json['title'] = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('title')->item(0)->firstChild->nodeValue;
-//        $json['description'] = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('description')->item(0)->firstChild->nodeValue;
-//        $json['link'] = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('link')->item(0)->firstChild->nodeValue;
         $items = $feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('item');
+        foreach ($feed->getElementsByTagName('channel')->item(0)->getElementsByTagName('image') as $key => $item){
+            $source = $item->getElementsByTagName('title')->item(0)->firstChild->nodeValue;
+            $image = $item->getElementsByTagName('url')->item(0)->firstChild->nodeValue;
+        }
 
         $new_table = array();
         foreach($items as $key => $item) {
@@ -26,7 +26,7 @@ class RSSParser
             $pubDate = Carbon::parse($pubDate);
             $guid = $item->getElementsByTagName('guid')->item(0)->firstChild->nodeValue;
 
-            $d = new DtoNews($title,$guid,$description,$pubDate);
+            $d = new DtoNews($title,$guid,$description,$pubDate,$image,$source);
             $new_table[]=$d;}
         }
         return $new_table;
