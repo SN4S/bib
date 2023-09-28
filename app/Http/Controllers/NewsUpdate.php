@@ -9,8 +9,13 @@ use Illuminate\Http\Request;
 
 class NewsUpdate extends Controller
 {
-    public function UpdateFeed(NewsRepository $newsRepository,RSSParser $RSSParser){
-        $sites=file('./sites.txt', FILE_IGNORE_NEW_LINES);
+    public function UpdateFeed(NewsRepository $newsRepository, RSSParser $RSSParser){
+        if (file_exists('./sites.txt')){
+            $sites=file('./sites.txt', FILE_IGNORE_NEW_LINES);
+        }else{
+            $sites=file('./public/sites.txt', FILE_IGNORE_NEW_LINES);
+        }
+
         foreach ($sites as $linenum=>$line){
             $news=$RSSParser->pars($line);
 
