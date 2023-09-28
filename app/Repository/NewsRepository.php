@@ -31,7 +31,7 @@ class NewsRepository
 
     public function getAllNews()
     {
-        $news = News::query()->orderByDesc('created_at')->paginate(15);
+        $news = News::query()->orderByDesc('pubdate')->paginate(15);
         foreach ($news as $key=>$val){
             $val['pubdate']= new Carbon($val['pubdate']);
         }
