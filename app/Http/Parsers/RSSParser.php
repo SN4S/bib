@@ -3,6 +3,7 @@
 namespace App\Http\Parsers;
 
 use App\Dto\DtoNews;
+use Carbon\Carbon;
 use DOMDocument;
 
 class RSSParser
@@ -22,6 +23,7 @@ class RSSParser
             $title = $item->getElementsByTagName('title')->item(0)->firstChild->nodeValue;
             $description = $item->getElementsByTagName('description')->item(0)->firstChild->nodeValue;
             $pubDate = $item->getElementsByTagName('pubDate')->item(0)->firstChild->nodeValue;
+            $pubDate = Carbon::parse($pubDate);
             $guid = $item->getElementsByTagName('guid')->item(0)->firstChild->nodeValue;
 
             $d = new DtoNews($title,$guid,$description,$pubDate);

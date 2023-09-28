@@ -3,6 +3,7 @@
 namespace App\Repository;
 
 use App\Models\News;
+use Carbon\Carbon;
 
 class NewsRepository
 {
@@ -28,7 +29,11 @@ class NewsRepository
 
     public function getAllNews()
     {
-        return News::query()->orderByDesc('created_at')->paginate(15);
+        $news = News::query()->orderByDesc('created_at')->paginate(15);
+        foreach ($news as $key=>$val){
+            $val['pubdate']= new Carbon($val['pubdate']);
+        }
+        return $news;
     }
 
     public function getOneNews($id){
