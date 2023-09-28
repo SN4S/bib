@@ -12,7 +12,7 @@
             </a>
         </div>
         <div class="hidden lg:flex lg:gap-x-12">
-            <a href="/update" class="text-sm font-semibold leading-6 text-gray-900">Оновити</a>
+            <a href="/update" target="_blank" class="text-sm font-semibold leading-6 text-gray-900">Оновити</a>
         </div>
         <div class="hidden lg:flex lg:flex-1 lg:justify-end">
             <a class="text-sm font-semibold leading-6 text-gray-900"> </a>

@@ -11,9 +11,6 @@
                 <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
             </a>
         </div>
-        <div>
-            <a href="{{redirect()->back()}}">AAAAAAAA</a>
-        </div>
         <div class="flex lg:hidden">
             <button type="button" class="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700">
                 <span class="sr-only">Open main menu</span>
