@@ -29,9 +29,9 @@ class NewsRepository
         return News::query()->insert($news);
     }
 
-    public function getAllNews()
+    public function getAllNews($pages = 15)
     {
-        $news = News::query()->orderByDesc('pubdate')->paginate(15);
+        $news = News::query()->orderByDesc('pubdate')->paginate($pages);
         foreach ($news as $key=>$val){
             $val['pubdate']= new Carbon($val['pubdate']);
         }
