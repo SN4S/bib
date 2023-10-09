@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\NewsUpdate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Regular user
 Route::get('/', [NewsController::class, 'getAllNews']);
 Route::get('/news/{id}', [NewsController::class, 'openOneNews'])->name('onews');
 
-Route::get('/update',[\App\Http\Controllers\NewsUpdate::class,'UpdateFeed']);
+
+//Admin pages
+Route::get('/admpnl/',[AdminController::class, 'show'])->name('admin.panel');
+Route::get('/update',[AdminController::class, 'update'])->name('update');
+Route::get('/admpnl/destroy',[AdminController::class, 'destroy'])->name('admin.destroy');

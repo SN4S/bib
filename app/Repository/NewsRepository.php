@@ -42,4 +42,8 @@ class NewsRepository
 
         return News::query()->find($id);
     }
+
+    public function destructor(){
+        News::query()->truncate();
+    }
 }

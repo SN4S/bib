@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class NewsUpdate extends Controller
 {
-    public function UpdateFeed(NewsRepository $newsRepository, RSSParser $RSSParser){
+    public function updateFeed(NewsRepository $newsRepository, RSSParser $RSSParser){
         if (file_exists('./sites.txt')){
             $sites=file('./sites.txt', FILE_IGNORE_NEW_LINES);
         }else{
@@ -24,7 +24,5 @@ class NewsUpdate extends Controller
                 $newsRepository->save($n_page);
             }
         }
-
-        echo "<script>window.close();</script>";
     }
 }
