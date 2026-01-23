@@ -1,6 +1,6 @@
 <x-layout>
     <x-slot name="title">
-        {{$news['title']}} - {{env('SITE_NAME')}}
+        {{env('SITE_NAME')}} - {{$news['title']}}
     </x-slot>
 
     <main>

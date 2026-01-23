@@ -15,7 +15,7 @@
                     </div>
                     <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
                         <p class="text-sm leading-6 text-gray-500">{{$new['pubdate']->isoformat('DD.MM.YYYY')}}</p>
-                        <p class="mt-1 text-xs leading-5 text-gray-600">Источник: <a href="{{$new['link']}}">{{$new['source_name']}}</a></p>
+                        <p class="mt-1 text-xs leading-5 text-gray-600">Джерело: <a href="{{$new['link']}}">{{$new['source_name']}}</a></p>
                     </div>
 
                 </li>
