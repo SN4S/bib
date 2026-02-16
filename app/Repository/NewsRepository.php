@@ -4,6 +4,7 @@ namespace App\Repository;
 
 use App\Models\News;
 use Carbon\Carbon;
+use function PHPUnit\Framework\returnArgument;
 
 class NewsRepository
 {
@@ -39,11 +40,14 @@ class NewsRepository
     }
 
     public function getOneNews($id){
-
         return News::query()->find($id);
     }
 
     public function destructor(){
         News::query()->truncate();
+    }
+
+    public function deleteNews($id){
+        return News::query()->find($id)->delete();
     }
 }

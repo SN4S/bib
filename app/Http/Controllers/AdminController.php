@@ -14,7 +14,7 @@ class AdminController extends Controller
         return view('admin.panel',['news'=>$news]);
     }
 
-    public function update(NewsUpdate $update){
+    public function refresh(NewsUpdate $update){
         $n = new NewsRepository();
         $r = new RSSParser();
         $update->updateFeed($n,$r);
@@ -24,7 +24,17 @@ class AdminController extends Controller
 
     public function destroy(NewsRepository $repository){
         $repository->destructor();
-
         return redirect(route('admin.panel'));
+    }
+
+    public function delete(NewsRepository $repository, int $id)
+    {
+        //dd($id);
+        $repository->deleteNews(intval($id));
+        return redirect(route('admin.panel'));    }
+
+    public function update(Request $request,int $id)
+    {
+        dd($request->keys());
     }
 }

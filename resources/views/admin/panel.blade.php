@@ -42,8 +42,15 @@
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white ">{{$new->source_name}}</td>
                                 <td scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap bg-white">{{$new->pubdate}}</td>
                                 <td>
-                                    <a class="btn-warning" href="/">Delete</a>
-                                    <a class="btn-danger " href="/">Edit</a>
+                                    <form action="{{ route('admin.delete',['id'=>$new->id]) }}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn-danger" type="submit">
+                                            Delete
+                                        </button>
+                                    </form>
+
+                                    <a class="btn-danger " href="{{route('News')}}">Edit</a>
                                 </td>
                             </tr>
                         @endforeach

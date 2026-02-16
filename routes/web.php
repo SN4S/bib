@@ -17,11 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Regular user
-Route::get('/', [NewsController::class, 'getAllNews']);
+Route::get('/', [NewsController::class, 'getAllNews']) -> name('News');
 Route::get('/news/{id}', [NewsController::class, 'openOneNews'])->name('onews');
 
 
 //Admin pages
 Route::get('/admpnl/',[AdminController::class, 'show'])->name('admin.panel');
-Route::get('/update',[AdminController::class, 'update'])->name('update');
+Route::get('/update',[AdminController::class, 'refresh'])->name('update');
 Route::get('/admpnl/destroy',[AdminController::class, 'destroy'])->name('admin.destroy');
+
+
+Route::delete('/admpnl/{id}',[AdminController::class, 'delete'])->name('admin.delete');
+Route::put('/admpnl/{id}',[AdminController::class, 'update'])->name('admin.update');
